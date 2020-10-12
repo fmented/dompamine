@@ -23,7 +23,7 @@ for root, dirs, files in os.walk(in_dir, topdown=True):
         dev = jsdev.read()
         minify = minifier(dev)
         print(minify, file=jsmin)
-        print("{jsmin} written succesfully")
+        print("{} written succesfully".format(f))
         jsdev.close()
         jsmin.close()
 print("done")
