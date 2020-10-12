@@ -57,9 +57,9 @@ a.create.inside.bottom("b#someting", "", {innerText: "I'm new"})
 ```
 
 
-## Assign Keyframe Animation
-> **⚠ WARNING :**
->**This could potentialy break your CSS rules if you have the same CSS selector text and can't be reversed.**
+## Add Animation
+
+!>**This could potentialy break your CSS rules if you have the same CSS selector text.**
 <br>
 >This will create new CSS rules with parent#id.class>el#id.class:psuedo-class.
 
@@ -88,8 +88,8 @@ a.anim("hover", "slideInRight", null) //remove generated rules
 ```
 
 ## Create CSS rule by copying another
-> **⚠ WARNING :**
->**This could potentialy break your CSS rules if you have the same CSS selector text and can't be reversed.**
+
+!>**This could potentialy break your CSS rules if you have the same CSS selector text**
 <br>
 >This will create new CSS rules with parent#id.class>el#id.class:psuedo-class.
 

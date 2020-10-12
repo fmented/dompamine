@@ -2,10 +2,10 @@
 
 Dompamine is a simple DOM element manipulation script with a few extra simplified command to make life easier
 
-## Getting Stated
+## Quick start
 
-Simply download [here](#) or add this script tag to the head your document
+Simply download [here](https://github.com/fmented/dompamine) or add this script tag to the head your document
 
 ```html
-   <script src="./dompamine.js" type="module"></script>
+   <script src="https://fmented.github.io/dompamine/testpage/dompamine-dev/dompamine.js" type="module"></script>
 ```

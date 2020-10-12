@@ -1,8 +1,14 @@
-* [Home](/)
-* [Basic](example/basic.md)
-* [Element](example/element.md)
-* [MultiElement](example/multi.md)
-* [Class](example/class.md)
-* [Style](example/style.md)
-* [Event](example/event.md)
-* [Test](example/test.md)
+- Example
+-- [Basic](example/basic.md)
+-- [Element](example/element.md)
+-- [MultiElement](example/multi.md)
+-- [Class](example/class.md)
+-- [Style](example/style.md)
+-- [Event](example/event.md)
+-- [Utility](example/utility.md)
+-- [Tools](example/tools.md)
+
+- Documentation
+-- [Element](documentation/element.md)
+-- [MultiElement](documentation/multi.md)
+-- [Utility](documentation/utility.md)
