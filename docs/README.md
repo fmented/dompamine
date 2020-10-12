@@ -9,3 +9,5 @@ Simply download [here](https://github.com/fmented/dompamine) or add this script 
 ```html
    <script src="https://fmented.github.io/dompamine/testpage/dompamine-dev/dompamine.js" type="module"></script>
 ```
+
+>or you can also play around in your console while you here
