@@ -8,7 +8,7 @@ DOM Element Manipulation Simplifier
 
 - Simplify long syntaxes
 - Change multiple elements at once
-- Option to execute in a long chainned operation 
+- Option to execute in a long chained operation 
 
 [Learn More](./README.md)
 [Github](https://github.com/fmented/dompamine)

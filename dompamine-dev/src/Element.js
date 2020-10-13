@@ -180,6 +180,7 @@ export class Element {
   anim(on, x, option = undefined) {
     let base = document.querySelector("style[name=dompamine]");
     on = on === "" ? "" : ":" + on;
+    x = x.replaceAll(/\s/g, "")
     let select = this.query[0] + on;
     let txt = Animation[x](select);
 
