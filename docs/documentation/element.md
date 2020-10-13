@@ -11,9 +11,9 @@
 
 |Name|Type|Category|Description
 |---|---|---|---|
-|el|[`HTMLElement`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement)|property|
-|text|`string`|getter \| setter|
-|html|`string`|getter \| setter|
+|el|[`HTMLElement`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement)|property|DOM element
+|text|`string`|getter \| setter|innerText
+|html|`string`|getter \| setter|innerHTML
 |style|`string` |getter \| setter|
 |css|`string`|getter \| setter|
 |class|`object`|getter \| setter|
@@ -72,7 +72,7 @@ Return : ``this``
 - **attr( *name*, *value* <sub>optional</sub> )**
 
 > if value is not given, it will return the attribute value.<br>
-if value is set to null, it will remove the attribute.<br>
+if value is set to `null`, it will remove the attribute.<br>
 else it will set the attribute value.<br>
 
 |Parameter|Type|Default|Description
