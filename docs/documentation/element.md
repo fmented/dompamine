@@ -17,19 +17,19 @@
 |style|`string` |getter \| setter|
 |css|`string`|getter \| setter|
 |class|`object`|getter \| setter|
-|parent|``Element`` \| ``MultiElement``|getter|
-|child|``Element`` \| ``MultiElement``|getter|
-|top|``Element`` \| ``MultiElement``|getter|
-|bottom|``Element`` \| ``MultiElement``|getter|
-|topChild|``Element`` \| ``MultiElement``|getter|
-|bottomChild|``Element`` \| ``MultiElement``|getter|
+|parent|[``Element``](documentation/element) \| [``MultiElement``](documentation/multi)|getter|
+|child|[``Element``](documentation/element) \| [``MultiElement``](documentation/multi)|getter|
+|top|[``Element``](documentation/element) \| [``MultiElement``](documentation/multi)|getter|
+|bottom|[``Element``](documentation/element) \| [``MultiElement``](documentation/multi)|getter|
+|topChild|[``Element``](documentation/element) \| [``MultiElement``](documentation/multi)|getter|
+|bottomChild|[``Element``](documentation/element) \| [``MultiElement``](documentation/multi)|getter|
 
 ---
 ---
 
 #### Methods
 
-- **hide**
+- **hide( *speed* <sub>optional</sub> )**
 
 |Parameter|Type|Default|Description
 |---|---|---|---|
@@ -39,7 +39,7 @@ Return : ``this``
 
 ---
 
-- **show**
+- **show( *speed* <sub>optional</sub> )**
 
 |Parameter|Type|Default|Description
 |---|---|---|---|
@@ -49,7 +49,7 @@ Return : ``this``
 
 ---
 
-- **toggle**
+- **toggle( *speed* <sub>optional</sub> )**
 
 |Parameter|Type|Default|Description
 |---|---|---|---|
@@ -59,17 +59,21 @@ Return : ``this``
 
 ---
 
-- **set**
+- **set( *style* )**
 
 |Parameter|Type|Default|Description
 |---|---|---|---|
-|style props|`object`| |style properties|
+|style|`object`| |``CSSStyleDeclaration`` properties|
 
 Return : ``this``
 
 ---
 
-- **attr**
+- **attr( *name*, *value* <sub>optional</sub> )**
+
+> if value is not given, it will return the attribute value.<br>
+if value is set to null, it will remove the attribute.<br>
+else it will set the attribute value.<br>
 
 |Parameter|Type|Default|Description
 |---|---|---|---|
@@ -81,71 +85,72 @@ Return : ``this``
 ---
 
 
-- **apply**
+- **apply( *props* )**
 
 |Parameter|Type|Default|Description
 |---|---|---|---|
-|element props|`object`| |HTMLElement properties|
+|props|`object`| |``HTMLElement`` properties|
 
 Return : ``this``
 
 ---
 
 
-- **steal**
+- **steal( *psuedo*, *selector*)**
 
 |Parameter|Type|Default|Description
 |---|---|---|---|
 |psuedo|`string`| |psuedo class text|
-|css selector|`string`| |css selector text|
+|selector|`string`| |css selector text|
 
 Return : ``this``
 
 ---
 
-- **anim**
+- **anim( *psuedo*, *animation*, *option* <sub>optional</sub> )**
 
 |Parameter|Type|Default|Description
 |---|---|---|---|
 |psuedo|`string`| |psuedo class text|
-|animation name|`string`| |animation name|
+|animation|`string`| |animation name|
+|option|`null`| |used to remove generated animation|
 
 Return : ``this``
 
 ---
 
 
-- **find**
+- **find( *query* )**
+
+|Parameter|Type|Default|Description
+|---|---|---|---|
+|query|`string`| |query text to find child element|
+
+Return : [``Element``](documentation/element) \| [``MultiElement``](documentation/multi)
+
+---
+
+- **glue( *query* )**
+
+|Parameter|Type|Default|Description
+|---|---|---|---|
+|query|`string`| |query text of element to be glued with|
+
+Return : [``MultiElement``](documentation/multi)
+
+---
+
+- **chain( *query* )**
 
 |Parameter|Type|Default|Description
 |---|---|---|---|
 |query|`string`| |query text|
 
-Return : ``Element`` \| ``MultiElement``
+Return : [``Element``](documentation/element) \| [``MultiElement``](documentation/multi)
 
 ---
 
-- **glue**
-
-|Parameter|Type|Default|Description
-|---|---|---|---|
-|query|`string`| |query text|
-
-Return : ``MultiElement``
-
----
-
-- **chain**
-
-|Parameter|Type|Default|Description
-|---|---|---|---|
-|query|`string`| |query text|
-
-Return : ``Element`` \| ``MultiElement``
-
----
-
-- **on**
+- **on( *event*, *callback* )**
 
 |Parameter|Type|Default|Description
 |---|---|---|---|
@@ -156,7 +161,7 @@ Return : ``this``
 
 ---
 
-- **off**
+- **off( *event*, *callback* )**
 
 |Parameter|Type|Default|Description
 |---|---|---|---|
@@ -166,74 +171,74 @@ Return : ``this``
 
 ---
 
-- **click**
+- **click( *option* <sub>optional</sub> )**
 
 |Parameter|Type|Default|Description
 |---|---|---|---|
-|mouse event props|`object`| |MouseEvent properties|
+|option|`object`| |``MouseEvent`` properties|
 
 Return : ``this``
 
 ---
 
-- **dblclick**
+- **dblclick( *option* <sub>optional</sub> )**
 
 |Parameter|Type|Default|Description
 |---|---|---|---|
-|mouse event props|`object`| |MouseEvent properties|
+|option|`object`| |``MouseEvent`` properties|
 
 Return : ``this``
 
 ---
 
-- **mouseup**
+- **mouseup( *option* <sub>optional</sub> )**
 
 |Parameter|Type|Default|Description
 |---|---|---|---|
-|mouse event props|`object`| |MouseEvent properties|
+|option|`object`| |``MouseEvent`` properties|
 
 Return : ``this``
 
 ---
 
-- **mousedown**
+- **mousedown( *option* <sub>optional</sub> )**
 
 |Parameter|Type|Default|Description
 |---|---|---|---|
-|mouse event props|`object`| |MouseEvent properties|
+|option|`object`| |``MouseEvent`` properties|
 
 Return : ``this``
 
 ---
 
-- **keypress**
+- **keypress( *keycode* <sub>optional</sub>, *option* <sub>optional</sub> )**
 
 |Parameter|Type|Default|Description
 |---|---|---|---|
-|key code|`number`|``13``|KeyboardEvent keyCode|
-|mouse event props|`object`| |KeyboardEvent properties|
+|keycode|`number`|``13``|``KeyboardEvent`` keyCode|
+|option|`object`| |``KeyboardEvent`` properties|
 
 Return : ``this``
 
 ---
 
-- **keydown**
+- **keydown( *keycode* <sub>optional</sub>, *option* <sub>optional</sub> )**
 
 |Parameter|Type|Default|Description
 |---|---|---|---|
-|key code|`number`|``13``|KeyboardEvent keyCode|
-|mouse event props|`object`| |KeyboardEvent properties|
+|keycode|`number`|``13``|``KeyboardEvent`` keyCode|
+|option|`object`| |``KeyboardEvent`` properties|
 
 Return : ``this``
 
 ---
 
-- **keyup**
+- **keyup( *keycode* <sub>optional</sub>, *option* <sub>optional</sub> )**
 
 |Parameter|Type|Default|Description
 |---|---|---|---|
-|key code|`number`|``13``|KeyboardEvent keyCode|
-|mouse event props|`object`| |KeyboardEvent properties|
+|keycode|`number`|``13``|``KeyboardEvent`` keyCode|
+|option|`object`| |``KeyboardEvent`` properties|
 
 Return : ``this``
 
@@ -244,42 +249,42 @@ Return : ``this``
 
 **create** ``object``
 
-***top*** 
+**top( elid, class, props <sub>optional</sub> )** 
 
 |Parameter|Type|Default|Description
 |---|---|---|---|
-|element and id|`string`| |element name and id separated by *#*|
+|elid|`string`| |element name and id separated by *#*|
 |class|`string`| |class separated by <kbd>space</kbd> 
-|element props|`object`| |HTMLElement properties|
+|props|`object`| |``HTMLElement`` properties|
 
 ---
 
-***bottom*** 
+**bottom( elid, class, props <sub>optional</sub> )** 
 
 |Parameter|Type|Default|Description
 |---|---|---|---|
-|element and id|`string`| |element name and id separated by *#*|
+|elid|`string`| |element name and id separated by *#*|
 |class|`string`| |class separated by <kbd>space</kbd> 
-|element props|`object`| |HTMLElement properties|
+|props|`object`| |``HTMLElement`` properties|
 
 ---
 
-***inside.top*** 
+**inside.top( elid, class, props <sub>optional</sub> )**
 
 |Parameter|Type|Default|Description
 |---|---|---|---|
-|element and id|`string`| |element name and id separated by *#*|
+|elid|`string`| |element name and id separated by *#*|
 |class|`string`| |class separated by <kbd>space</kbd> 
-|element props|`object`| |HTMLElement properties|
+|props|`object`| |``HTMLElement`` properties|
 
 ---
 
-***inside.bottom*** 
+**inside.bottom( elid, class, props <sub>optional</sub> )**
 
 |Parameter|Type|Default|Description
 |---|---|---|---|
-|element and id|`string`| |element name and id separated by *#*|
+|elid|`string`| |element name and id separated by *#*|
 |class|`string`| |class separated by <kbd>space</kbd> 
-|element props|`object`| |HTMLElement properties|
+|props|`object`| |``HTMLElement`` properties|
 
 ---

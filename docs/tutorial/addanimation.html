@@ -1,0 +1,34 @@
+<h1>Add Animation</h1>
+<br>
+<pre>_("#target").anim("","<select id="option">
+    <option value="slideInLeft">slideInLeft</option>
+    <option value="slideInRight">slideInRight</option>
+    <option value="slideInUp">slideInUp</option>
+    <option value="slideInDown">slideInDown</option>
+</select>")</pre>
+<button id="btn-target">Run</button>
+<script>
+    _("#btn-target").on("click", function(){
+        x = _("#option")
+        y = x.el.options.selectedIndex
+        a = _("pre").text
+        b = x.el.options[y].value
+        a= a.slice(0,22)+b
+        txt = `(()=>{${a}"); setTimeout(()=>{${a}",null)}, 2000)})()`
+        parent = _(this).parent
+        if(_("#generated")==null){
+            parent.create.inside.bottom("script#generated","",{
+                innerHTML: txt
+            })
+        }
+        else {
+            parent.el.removeChild(_("#generated").el)
+            parent.create.inside.bottom("script#generated","",{
+                innerHTML: txt
+            })
+        }
+    })
+    
+</script>
+
+<h4 id="target">I'm the target</h4>

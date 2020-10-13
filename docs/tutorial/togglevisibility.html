@@ -1,0 +1,33 @@
+<h1>Change Visibility</h1>
+<br>
+<pre>_("#target").<select id="option">
+    <option value="hide()">hide</option>
+    <option value="show()">show</option>
+    <option value="toggle()">toggle</option>
+</select>()</pre>
+<button id="btn-target">Run</button>
+<script>
+    _("#btn-target").on("click", function(){
+        x = _("#option")
+        y = x.el.options.selectedIndex
+        a = _("pre").text
+        b = x.el.options[y].value
+        a= a.slice(0,13)+b
+        txt = "(()=>{"+a+"})()"
+        parent = _(this).parent
+        if(_("#generated")==null){
+            parent.create.inside.bottom("script#generated","",{
+                innerHTML: txt
+            })
+        }
+        else {
+            parent.el.removeChild(_("#generated").el)
+            parent.create.inside.bottom("script#generated","",{
+                innerHTML: txt
+            })
+        }
+    })
+    
+</script>
+
+<h4 id="target">I'm the target</h4>

@@ -3,7 +3,7 @@
 
 ### MultElement
 
-**constructor :**  `HTMLElement[]` \| `Nodelist`
+**constructor :**  `HTMLElement[]` \| `Nodelist` \| `HTMLCollection`
 
 
 #### Members
@@ -17,19 +17,19 @@
 |style|`string` |getter \| setter|
 |css|`string`|getter \| setter|
 |class|`object`|setter||
-|parent|``Element`` \| ``MultiElement``|getter|
-|child|``Element`` \| ``MultiElement``|getter|
-|top|``Element`` \| ``MultiElement``|getter|
-|bottom|``Element`` \| ``MultiElement``|getter|
-|topChild|``Element`` \| ``MultiElement``|getter|
-|bottomChild|``Element`` \| ``MultiElement``|getter|
+|parent|[``Element``](documentation/element) \| [``MultiElement``](documentation/multi)|getter|
+|child|[``Element``](documentation/element) \| [``MultiElement``](documentation/multi)|getter|
+|top|[``Element``](documentation/element) \| [``MultiElement``](documentation/multi)|getter|
+|bottom|[``Element``](documentation/element) \| [``MultiElement``](documentation/multi)|getter|
+|topChild|[``Element``](documentation/element) \| [``MultiElement``](documentation/multi)|getter|
+|bottomChild|[``Element``](documentation/element) \| [``MultiElement``](documentation/multi)|getter|
 
 ---
 ---
 
 #### Methods
 
-- **hide**
+- **hide( *speed* <sub>optional</sub> )**
 
 |Parameter|Type|Default|Description
 |---|---|---|---|
@@ -39,7 +39,7 @@ Return : ``this``
 
 ---
 
-- **show**
+- **show( *speed* <sub>optional</sub> )**
 
 |Parameter|Type|Default|Description
 |---|---|---|---|
@@ -49,7 +49,7 @@ Return : ``this``
 
 ---
 
-- **toggle**
+- **toggle( *speed* <sub>optional</sub> )**
 
 |Parameter|Type|Default|Description
 |---|---|---|---|
@@ -59,17 +59,21 @@ Return : ``this``
 
 ---
 
-- **set**
+- **set( *style* )**
 
 |Parameter|Type|Default|Description
 |---|---|---|---|
-|style props|`object`| |style properties|
+|style|`object`| |``CSSStyleDeclaration`` properties|
 
 Return : ``this``
 
 ---
 
-- **attr**
+- **attr( *name*, *value* <sub>optional</sub> )**
+
+> if value is not given, it will return the attribute value.<br>
+if value is set to null, it will remove the attribute.<br>
+else it will set the attribute value.<br>
 
 |Parameter|Type|Default|Description
 |---|---|---|---|
@@ -81,81 +85,84 @@ Return : ``this``
 ---
 
 
-- **apply**
+- **apply( *props* )**
 
 |Parameter|Type|Default|Description
 |---|---|---|---|
-|element props|`object`| |HTMLElement properties|
+|props|`object`| |``HTMLElement`` properties|
 
 Return : ``this``
 
 ---
 
 
-- **steal**
+- **steal( *psuedo*, *selector*)**
 
 |Parameter|Type|Default|Description
 |---|---|---|---|
 |psuedo|`string`| |psuedo class text|
-|css selector|`string`| |css selector text|
+|selector|`string`| |css selector text|
 
 Return : ``this``
 
 ---
 
-- **anim**
+- **anim( *psuedo*, *animation*, *option* <sub>optional</sub> )**
 
 |Parameter|Type|Default|Description
 |---|---|---|---|
 |psuedo|`string`| |psuedo class text|
-|animation name|`string`| |animation name|
+|animation|`string`| |animation name|
+|option|`null`| |used to remove generated animation|
 
 Return : ``this``
 
 ---
 
 
-- **glue**
+- **glue( *query* )**
+
+|Parameter|Type|Default|Description
+|---|---|---|---|
+|query|`string`| |query text of element to be glued with|
+
+Return : [``MultiElement``](documentation/multi)
+
+---
+
+- **chain( *query* )**
 
 |Parameter|Type|Default|Description
 |---|---|---|---|
 |query|`string`| |query text|
 
-Return : ``MultiElement``
+Return : [``Element``](documentation/element) \| [``MultiElement``](documentation/multi)
 
 ---
 
-- **chain**
+- **filter( *query* )**
+> will return element that match the query
 
 |Parameter|Type|Default|Description
 |---|---|---|---|
 |query|`string`| |query text|
 
-Return : ``Element`` \| ``MultiElement``
+Return : [``Element``](documentation/element) \| [``MultiElement``](documentation/multi)
 
 ---
 
-- **filter**
+- **exclude( *query* )**
+> will return element excluding element that match the query
 
 |Parameter|Type|Default|Description
 |---|---|---|---|
 |query|`string`| |query text|
 
-Return : ``Element`` \| ``MultiElement``
+Return : [``Element``](documentation/element) \| [``MultiElement``](documentation/multi)
 
 ---
 
-- **exclude**
-
-|Parameter|Type|Default|Description
-|---|---|---|---|
-|query|`string`| |query text|
-
-Return : ``Element`` \| ``MultiElement``
-
----
-
-- **on**
+- **on( *event*, *callback* )**
 
 |Parameter|Type|Default|Description
 |---|---|---|---|
@@ -166,7 +173,7 @@ Return : ``this``
 
 ---
 
-- **off**
+- **off( *event*, *callback* )**
 
 |Parameter|Type|Default|Description
 |---|---|---|---|
@@ -174,49 +181,51 @@ Return : ``this``
 
 Return : ``this``
 
----
 
+
+---
+---
 
 #### Misc.
 
 **create** ``object``
 
-***top*** 
+**top( elid, class, props <sub>optional</sub> )** 
 
 |Parameter|Type|Default|Description
 |---|---|---|---|
-|element and id|`string`| |element name and id separated by *#*|
+|elid|`string`| |element name and id separated by *#*|
 |class|`string`| |class separated by <kbd>space</kbd> 
-|element props|`object`| |HTMLElement properties|
+|props|`object`| |``HTMLElement`` properties|
 
 ---
 
-***bottom*** 
+**bottom( elid, class, props <sub>optional</sub> )** 
 
 |Parameter|Type|Default|Description
 |---|---|---|---|
-|element and id|`string`| |element name and id separated by *#*|
+|elid|`string`| |element name and id separated by *#*|
 |class|`string`| |class separated by <kbd>space</kbd> 
-|element props|`object`| |HTMLElement properties|
+|props|`object`| |``HTMLElement`` properties|
 
 ---
 
-***inside.top*** 
+**inside.top( elid, class, props <sub>optional</sub> )**
 
 |Parameter|Type|Default|Description
 |---|---|---|---|
-|element and id|`string`| |element name and id separated by *#*|
+|elid|`string`| |element name and id separated by *#*|
 |class|`string`| |class separated by <kbd>space</kbd> 
-|element props|`object`| |HTMLElement properties|
+|props|`object`| |``HTMLElement`` properties|
 
 ---
 
-***inside.bottom*** 
+**inside.bottom( elid, class, props <sub>optional</sub> )**
 
 |Parameter|Type|Default|Description
 |---|---|---|---|
-|element and id|`string`| |element name and id separated by *#*|
+|elid|`string`| |element name and id separated by *#*|
 |class|`string`| |class separated by <kbd>space</kbd> 
-|element props|`object`| |HTMLElement properties|
+|props|`object`| |``HTMLElement`` properties|
 
 ---

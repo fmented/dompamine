@@ -1,46 +1,47 @@
 ### Global Functions
 
-- **_**
+- **_( element )**
 
 |Parameter|Type|Default|Description
 |---|---|---|---|
-|element|`string` \| `array` \| `nodelist`|||
+|element|`string` \| `HTMLElement[]` \| `nodelist` \|`HTMLColection`|||
 
-Return : ``Element`` \| ``MultiElement``
+Return : [``Element``](documentation/element) \| [``MultiElement``](documentation/multi)
 
 ---
 
-- **p**
+- **p( ...data )**
 
 |Parameter|Type|Default|Description
 |---|---|---|---|
-|...what|any||console.log|
+|...data|any||console.log|
 
 Return :
 
 ---
 
-- **w**
+- **w( ...data )**
 
 |Parameter|Type|Default|Description
 |---|---|---|---|
-|...what|any||console.warn|
+|...data|any||console.warn|
 
 Return :
 
 ---
 
-- **e**
+- **e( ...data )**
 
 |Parameter|Type|Default|Description
 |---|---|---|---|
-|...what|any||console.error|
+|...data|any||console.error|
 
 Return :
 
 ---
 
-- **iterable**
+- **iterable( obj )**
+>check if object is iterable
 
 |Parameter|Type|Default|Description
 |---|---|---|---|
@@ -50,7 +51,8 @@ Return : `boolean`
 
 ---
 
-- **parsable**
+- **parsable( obj )**
+>check if object is parsable
 
 |Parameter|Type|Default|Description
 |---|---|---|---|
@@ -60,7 +62,8 @@ Return : `boolean`
 
 ---
 
-- **empty**
+- **empty( obj )**
+>check if object is empty
 
 |Parameter|Type|Default|Description
 |---|---|---|---|
@@ -70,7 +73,8 @@ Return : `boolean`
 
 ---
 
-- **compare**
+- **compare( obj1, obj2 )**
+>check if objects are the same
 
 |Parameter|Type|Default|Description
 |---|---|---|---|
@@ -81,7 +85,8 @@ Return : `boolean`
 
 ---
 
-- **type**
+- **type( obj )**
+>check object type
 
 |Parameter|Type|Default|Description
 |---|---|---|---|
@@ -92,7 +97,7 @@ Return : `string`
 
 ---
 
-- **range**
+- **range( n1, n2, step )**
 
 |Parameter|Type|Default|Description
 |---|---|---|---|
@@ -104,3 +109,16 @@ Return : `array`
 
 ---
 
+- **scale( value, inLow, inHight, outLow, outHight )**
+
+|Parameter|Type|Default|Description
+|---|---|---|---|
+|value|``number``|||
+|inLow|``number``|||
+|inHight|``number``|||
+|outLow|``number``|||
+|outHight|``number``|||
+
+Return : `number`
+
+---

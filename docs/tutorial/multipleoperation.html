@@ -1,0 +1,32 @@
+<h1>Chainned Operation</h1>
+<br>
+
+
+<pre>_("#target1").set({<input id="input1" value="fontSize : '2rem', background : 'gray'"></input>}).chain("#target2").text = "<input id="input2" value="I'm the target #2"></input>"</pre>
+<button id="btn-target">Run</button>
+<script>
+    _("#btn-target").on("click", function(){
+        a = _("pre").text
+        b = _("#input1").el.value
+        c = _("#input2").el.value
+        a= a.replace(`{}`,`{${b}}`)
+        a= a.replace(`""`,`"${c}"`)
+        txt = "(()=>{"+a+"})()"
+        parent = _(this).parent
+        if(_("#generated")==null){
+            parent.create.inside.bottom("script#generated","",{
+                innerHTML: txt
+            })
+        }
+        else {
+            parent.el.removeChild(_("#generated").el)
+            parent.create.inside.bottom("script#generated","",{
+                innerHTML: txt
+            })
+        }
+    })
+    
+</script>
+
+<h4 id="target1">I'm the target #1</h4>
+<h4 id="target2">I'm the target #2</h4>

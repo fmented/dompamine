@@ -4,6 +4,16 @@
 
 </div>
 
+- Tutorial
+-- [Change Text](tutorial/changetext.html)
+-- [Change Color](tutorial/changecolor.html)
+-- [Change Visibility](tutorial/togglevisibility.html)
+-- [Add Animation](tutorial/addanimation.html)
+-- [Add CSS](tutorial/addcss.html)
+-- [Chainned Operation](tutorial/multipleoperation.html)
+-- [MultiElement Operation](tutorial/multielementoperation.html)
+
+
 - Example
 -- [Basic](example/basic.md)
 -- [Element](example/element.md)
@@ -15,6 +25,7 @@
 -- [Tools](example/tools.md)
 
 - Documentation
--- [Element](documentation/element.md)
--- [MultiElement](documentation/multi.md)
--- [Utility](documentation/utility.md)
+-- [Global Function](documentation/functions.md)
+- Classes
+-- _[Element](documentation/element.md)_
+-- _[MultiElement](documentation/multi.md)_
