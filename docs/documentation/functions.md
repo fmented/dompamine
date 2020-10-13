@@ -4,7 +4,7 @@
 
 |Parameter|Type|Default|Description
 |---|---|---|---|
-|element|`string` \| `HTMLElement[]` \| `nodelist` \|`HTMLColection`|||
+|element|`string` \| `HTMLElement[]` \| [`NodeList`](https://developer.mozilla.org/en-US/docs/Web/API/Nodelist) \|[`HTMLColection`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLCollection) |||
 
 Return : [``Element``](documentation/element) \| [``MultiElement``](documentation/multi)
 

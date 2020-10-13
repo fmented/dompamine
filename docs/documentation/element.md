@@ -3,7 +3,7 @@
 
 ### Element
 
-**constructor :**  `HTMLElement`
+**constructor :**  [`HTMLElement`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement)
 
 
 #### Members
@@ -11,7 +11,7 @@
 
 |Name|Type|Category|Description
 |---|---|---|---|
-|el|`HTMLElement`|property|
+|el|[`HTMLElement`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement)|property|
 |text|`string`|getter \| setter|
 |html|`string`|getter \| setter|
 |style|`string` |getter \| setter|
@@ -63,7 +63,7 @@ Return : ``this``
 
 |Parameter|Type|Default|Description
 |---|---|---|---|
-|style|`object`| |``CSSStyleDeclaration`` properties|
+|style|`object`| |[`CSSStyleDeclaration`](https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleDeclaration) properties|
 
 Return : ``this``
 
@@ -89,7 +89,7 @@ Return : ``this``
 
 |Parameter|Type|Default|Description
 |---|---|---|---|
-|props|`object`| |``HTMLElement`` properties|
+|props|`object`| |[`HTMLElement`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement) properties|
 
 Return : ``this``
 
@@ -175,7 +175,7 @@ Return : ``this``
 
 |Parameter|Type|Default|Description
 |---|---|---|---|
-|option|`object`| |``MouseEvent`` properties|
+|option|`object`| |[`MouseEvent`](https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent) properties|
 
 Return : ``this``
 
@@ -185,7 +185,7 @@ Return : ``this``
 
 |Parameter|Type|Default|Description
 |---|---|---|---|
-|option|`object`| |``MouseEvent`` properties|
+|option|`object`| |[`MouseEvent`](https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent) properties|
 
 Return : ``this``
 
@@ -195,7 +195,7 @@ Return : ``this``
 
 |Parameter|Type|Default|Description
 |---|---|---|---|
-|option|`object`| |``MouseEvent`` properties|
+|option|`object`| |[`MouseEvent`](https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent) properties|
 
 Return : ``this``
 
@@ -205,7 +205,7 @@ Return : ``this``
 
 |Parameter|Type|Default|Description
 |---|---|---|---|
-|option|`object`| |``MouseEvent`` properties|
+|option|`object`| |[`MouseEvent`](https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent) properties|
 
 Return : ``this``
 
@@ -215,8 +215,8 @@ Return : ``this``
 
 |Parameter|Type|Default|Description
 |---|---|---|---|
-|keycode|`number`|``13``|``KeyboardEvent`` keyCode|
-|option|`object`| |``KeyboardEvent`` properties|
+|keycode|`number`|``13``|[`KeyboardEvent`](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent) keyCode|
+|option|`object`| |[`KeyboardEvent`](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent) properties|
 
 Return : ``this``
 
@@ -226,8 +226,8 @@ Return : ``this``
 
 |Parameter|Type|Default|Description
 |---|---|---|---|
-|keycode|`number`|``13``|``KeyboardEvent`` keyCode|
-|option|`object`| |``KeyboardEvent`` properties|
+|keycode|`number`|``13``|[`KeyboardEvent`](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent) keyCode|
+|option|`object`| |[`KeyboardEvent`](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent) properties|
 
 Return : ``this``
 
@@ -237,8 +237,8 @@ Return : ``this``
 
 |Parameter|Type|Default|Description
 |---|---|---|---|
-|keycode|`number`|``13``|``KeyboardEvent`` keyCode|
-|option|`object`| |``KeyboardEvent`` properties|
+|keycode|`number`|``13``|[`KeyboardEvent`](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent) keyCode|
+|option|`object`| |[`KeyboardEvent`](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent) properties|
 
 Return : ``this``
 
@@ -255,7 +255,7 @@ Return : ``this``
 |---|---|---|---|
 |elid|`string`| |element name and id separated by *#*|
 |class|`string`| |class separated by <kbd>space</kbd> 
-|props|`object`| |``HTMLElement`` properties|
+|props|`object`| |[`HTMLElement`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement) properties|
 
 ---
 
@@ -265,7 +265,7 @@ Return : ``this``
 |---|---|---|---|
 |elid|`string`| |element name and id separated by *#*|
 |class|`string`| |class separated by <kbd>space</kbd> 
-|props|`object`| |``HTMLElement`` properties|
+|props|`object`| |[`HTMLElement`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement) properties|
 
 ---
 
@@ -275,7 +275,7 @@ Return : ``this``
 |---|---|---|---|
 |elid|`string`| |element name and id separated by *#*|
 |class|`string`| |class separated by <kbd>space</kbd> 
-|props|`object`| |``HTMLElement`` properties|
+|props|`object`| |[`HTMLElement`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement) properties|
 
 ---
 
@@ -285,6 +285,6 @@ Return : ``this``
 |---|---|---|---|
 |elid|`string`| |element name and id separated by *#*|
 |class|`string`| |class separated by <kbd>space</kbd> 
-|props|`object`| |``HTMLElement`` properties|
+|props|`object`| |[`HTMLElement`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement) properties|
 
 ---

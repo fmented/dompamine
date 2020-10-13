@@ -3,7 +3,7 @@
 
 ### MultElement
 
-**constructor :**  `HTMLElement[]` \| `Nodelist` \| `HTMLCollection`
+**constructor :**  `HTMLElement[]` \| [`NodeList`](https://developer.mozilla.org/en-US/docs/Web/API/Nodelist) \| `HTMLCollection`
 
 
 #### Members
@@ -11,7 +11,7 @@
 
 |Name|Type|Category|Description
 |---|---|---|---|
-|el|`HTMLElement`|property|
+|el|[`HTMLElement`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement)|property|
 |text|`string`|getter \| setter|
 |html|`string`|getter \| setter|
 |style|`string` |getter \| setter|
@@ -63,7 +63,7 @@ Return : ``this``
 
 |Parameter|Type|Default|Description
 |---|---|---|---|
-|style|`object`| |``CSSStyleDeclaration`` properties|
+|style|`object`| |[`CSSStyleDeclaration`](https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleDeclaration) properties|
 
 Return : ``this``
 
@@ -89,7 +89,7 @@ Return : ``this``
 
 |Parameter|Type|Default|Description
 |---|---|---|---|
-|props|`object`| |``HTMLElement`` properties|
+|props|`object`| |[`HTMLElement`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement) properties|
 
 Return : ``this``
 
@@ -196,7 +196,7 @@ Return : ``this``
 |---|---|---|---|
 |elid|`string`| |element name and id separated by *#*|
 |class|`string`| |class separated by <kbd>space</kbd> 
-|props|`object`| |``HTMLElement`` properties|
+|props|`object`| |[`HTMLElement`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement) properties|
 
 ---
 
@@ -206,7 +206,7 @@ Return : ``this``
 |---|---|---|---|
 |elid|`string`| |element name and id separated by *#*|
 |class|`string`| |class separated by <kbd>space</kbd> 
-|props|`object`| |``HTMLElement`` properties|
+|props|`object`| |[`HTMLElement`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement) properties|
 
 ---
 
@@ -216,7 +216,7 @@ Return : ``this``
 |---|---|---|---|
 |elid|`string`| |element name and id separated by *#*|
 |class|`string`| |class separated by <kbd>space</kbd> 
-|props|`object`| |``HTMLElement`` properties|
+|props|`object`| |[`HTMLElement`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement) properties|
 
 ---
 
@@ -226,6 +226,6 @@ Return : ``this``
 |---|---|---|---|
 |elid|`string`| |element name and id separated by *#*|
 |class|`string`| |class separated by <kbd>space</kbd> 
-|props|`object`| |``HTMLElement`` properties|
+|props|`object`| |[`HTMLElement`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement) properties|
 
 ---
