@@ -22,6 +22,6 @@ DOM Element Manipulation Simplifier
 
 ---
 
-[Learn More](https://fmented.github.com/dompamine/) | [Github](https://github.com/fmented/dompamine)
+[Learn More](https://fmented.github.io/dompamine/) | [Github](https://github.com/fmented/dompamine)
 |---|---|
 </div>
