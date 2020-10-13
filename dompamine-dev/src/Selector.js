@@ -2,7 +2,7 @@ import { Element } from "./Element.js";
 import { MultiElement } from "./MultiElement.js";
 import { type, iterable } from "./Utility.js";
 
-const excluded = ["script", "style", "meta", "title"];
+const excluded = ["html", "meta"];
 
 export function _(el, at = document) {
   if (iterable(el) && type(el) != "String") {

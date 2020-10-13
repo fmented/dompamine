@@ -1,10 +1,51 @@
 <h1>Add Animation</h1>
 <br>
-<pre>_("#target").anim("","<select id="option">
+
+<span>for more detail about these animations, go to <a href="https://www.theappguruz.com/tag-tools/web/CSSAnimations/">this website</a></span>
+<hr>
+<pre>_("#target").anim("<select id="option">
     <option value="slideInLeft">slideInLeft</option>
     <option value="slideInRight">slideInRight</option>
     <option value="slideInUp">slideInUp</option>
     <option value="slideInDown">slideInDown</option>
+    <option value="slideOutLeft">slideOutLeft</option>
+    <option value="slideOutRight">slideOutRight</option>
+    <option value="slideOutUp">slideOutUp</option>
+    <option value="slideOutDown">slideOutDown</option>
+    <option value="fadeIn">fadeIn</option>
+    <option value="fadeInLeft">fadeInLeft</option>
+    <option value="fadeInRight">fadeInRight</option>
+    <option value="fadeInUp">fadeInUp</option>
+    <option value="fadeInDown">fadeInDown</option>
+    <option value="fadeOut">fadeOut</option>
+    <option value="fadeOutLeft">fadeOutLeft</option>
+    <option value="fadeOutRight">fadeOutRight</option>
+    <option value="fadeOutUp">fadeOutUp</option>
+    <option value="fadeOutDown">fadeOutDown</option>
+    <option value="bounce">bounceInLeft</option>
+    <option value="bounceInLeft">bounceInLeft</option>
+    <option value="bounceInRight">bounceInRight</option>
+    <option value="bounceInUp">bounceInUp</option>
+    <option value="bounceInDown">bounceInDown</option>
+    <option value="bounceOutLeft">bounceOutLeft</option>
+    <option value="bounceOutRight">bounceOutRight</option>
+    <option value="bounceOutUp">bounceOutUp</option>
+    <option value="bounceOutDown">bounceOutDown</option>
+    <option value="zoomInLeft">zoomInLeft</option>
+    <option value="zoomInRight">zoomInRight</option>
+    <option value="zoomInUp">zoomInUp</option>
+    <option value="zoomInDown">zoomInDown</option>
+    <option value="zoomOutLeft">zoomOutLeft</option>
+    <option value="zoomOutRight">zoomOutRight</option>
+    <option value="zoomOutUp">zoomOutUp</option>
+    <option value="zoomOutDown">zoomOutDown</option>
+    <option value="flipInX">flipInX</option>
+    <option value="flipInY">flipInY</option>
+    <option value="flipOutX">flipOutX</option>
+    <option value="flipOutY">flipOutY</option>
+
+
+        
 </select>")</pre>
 <button id="btn-target">Run</button>
 <script>
@@ -13,8 +54,8 @@
         y = x.el.options.selectedIndex
         a = _("pre").text
         b = x.el.options[y].value
-        a= a.slice(0,22)+b
-        txt = `(()=>{${a}"); setTimeout(()=>{${a}",null)}, 2000)})()`
+        a= (a.slice(0,20)+b).replaceAll("\n","")
+        txt = `(()=>{${a}");})()`
         parent = _(this).parent
         if(_("#generated")==null){
             parent.create.inside.bottom("script#generated","",{
@@ -32,3 +73,5 @@
 </script>
 
 <h4 id="target">I'm the target</h4>
+
+

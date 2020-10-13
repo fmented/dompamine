@@ -1,6 +1,5 @@
 import { _ } from "./Selector.js";
-import { type, p } from "./Utility.js";
-import Animation from "./Animation.js";
+import { type} from "./Utility.js";
 
 let blacklist = "style previousSibling previousElementSibling part parentNode parentElement ownerDocument offsetParent nextSibling nextElementSibling lastChild firstChild dataset classList children childNotes attributes attributeStyleMap".split(
   " "
@@ -62,7 +61,7 @@ export class Element {
     });
 
     let result = [
-      parentName+parentid+allparentclass+">"+name + id + allclass,
+      parentName + parentid + allparentclass + ">" + name + id + allclass,
       name + id + allclass,
       id + allclass,
       name + allclass,
@@ -72,9 +71,11 @@ export class Element {
       name,
       allclass,
       ...classes,
-    ].filter((i)=>{return i!=""});
-    let value = [...new Set(result)]
-    return value
+    ].filter((i) => {
+      return i != "";
+    });
+    let value = [...new Set(result)];
+    return value;
   }
 
   set(obj) {
@@ -88,20 +89,20 @@ export class Element {
     return _(el);
   }
 
-  get top(){
-    return _(this.el.previousElementSibling)
+  get top() {
+    return _(this.el.previousElementSibling);
   }
 
-  get botom(){
-    return _(this.el.nextElementSibling)
+  get bottom() {
+    return _(this.el.nextElementSibling);
   }
 
-  get topChild(){
-    return _(this.el.firstElementChild)
+  get topChild() {
+    return _(this.el.firstElementChild);
   }
 
-  get bottomChild(){
-    return _(this.el.lastElementChild)
+  get bottomChild() {
+    return _(this.el.lastElementChild);
   }
 
   create = {
@@ -177,29 +178,83 @@ export class Element {
     },
   };
 
-  anim(on, x, option = undefined) {
+  remove = {
+    self: () => {
+      this.parent.el.removeChild(this.el);
+      return null;
+    },
+    top: () => {
+      this.parent.el.removeChild(this.top.el);
+      return this;
+    },
+    bottom: () => {
+      this.parent.el.removeChild(this.bottom.el);
+      return this;
+    },
+    child: (q) => {
+      let e = this.find(q);
+      if (e != undefined) {
+        if (type(e) === "Element") {
+          e.remove.self();
+        } else {
+          [...e].forEach((i) => {
+            i.remove.self();
+          });
+        }
+      }
+      return this;
+    },
+  };
+
+  anim(name, time = 1, option = true, on = "") {
+    if (option === true) {
+      this.on("animationend", function () {
+        _(this).anim(name, time, null, on).off("animationend");
+      });
+    }
     let base = document.querySelector("style[name=dompamine]");
     on = on === "" ? "" : ":" + on;
-    x = x.replaceAll(/\s/g, "")
-    let select = this.query[0] + on;
-    let txt = Animation[x](select);
+    let animation = [...document.styleSheets].filter((i) => {
+      return i.title == "dompamine-animation";
+    })[0];
+    if (animation == undefined) {
+      w(
+        `please include <link rel="stylesheet" href="source/to/Animation.css" title="dompamine-animation"> in the head of the document`
+      );
+      return this;
+    } else animation = animation.rules;
+    let css = [...animation].filter((i) => {
+      return type(i) === "CSSStyleRule" && i.selectorText === "." + name;
+    })[0];
+    let txt =
+      "\n" +
+      css.cssText.slice(0, -1).replace(css.selectorText, this.query[0]) +
+      `animation-duration: ${time}s; }`;
 
-    if (base != null) {
+    if (base !== null) {
       if (option === null) {
         base.innerHTML = base.innerHTML.replace(txt, "");
+        if (base.innerHTML == "") {
+          _(base).remove.self();
+        }
         return this;
       }
-      if (!base.innerHTML.includes(txt)) base.innerHTML += `${txt}`;
+      if (!base.innerHTML.includes(txt)) base.innerHTML += txt;
     } else {
       let st = document.createElement("style");
       st.setAttribute("name", "dompamine");
-      st.innerHTML = `${txt}`;
+      st.innerHTML = txt;
       document.head.appendChild(st);
     }
     return this;
   }
 
-  steal(on, selector, option=undefined) {
+  steal(selector, option = undefined, on = "") {
+    if (option === true) {
+      this.on("animationend", function () {
+        _(this).steal(selector, null, on).off("animationend");
+      });
+    }
     let base = document.querySelector("style[name=dompamine]");
     let css = [...document.styleSheets]
       .map((i) => {
@@ -214,17 +269,20 @@ export class Element {
       w("not found");
       return this;
     }
-    let txt = css.cssText.replace(selector, this.query[0] + on);
+    let txt = "\n" + css.cssText.replace(selector, this.query[0] + on);
     if (base !== null) {
       if (option === null) {
         base.innerHTML = base.innerHTML.replace(txt, "");
+        if (base.innerHTML == "") {
+          _(base).remove.self();
+        }
         return this;
       }
-      if (!base.innerHTML.includes(txt)) base.innerHTML += `\n${txt}\n`;
+      if (!base.innerHTML.includes(txt)) base.innerHTML += txt;
     } else {
       let st = document.createElement("style");
       st.setAttribute("name", "dompamine");
-      st.innerHTML = `\n${txt}\n`;
+      st.innerHTML = txt;
       document.head.appendChild(st);
     }
     return this;

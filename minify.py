@@ -15,11 +15,11 @@ for root, dirs, files in os.walk(in_dir, topdown=True):
         outpath = inpath.replace(in_dir, out_dir)
         jsdev = open(inpath,'r')
         try:
-            jsmin =  open(outpath, 'a')
+            jsmin =  open(outpath, 'w')
         except:
             p=Path(os.path.dirname(outpath))
             p.mkdir(exist_ok=True)
-            jsmin =  open(outpath, 'w+')
+            jsmin =  open(outpath, 'w')
         dev = jsdev.read()
         minify = minifier(dev)
         print(minify, file=jsmin)

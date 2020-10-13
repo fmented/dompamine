@@ -164,13 +164,13 @@ export class MultiElement {
     }
   }
 
-  anim(on, name, dur, iter) {
-    [...this].forEach((i) => i.anim(on, name, dur, iter));
+  anim(name, dur, option, on) {
+    [...this].forEach((i) => i.anim(name, dur, option, on));
     return this;
   }
 
-  steal(on, selector, option) {
-    [...this].forEach((i) => i.steal(on, selector, option));
+  steal(selector, option , on) {
+    [...this].forEach((i) => i.steal(selector, option, on));
     return this;
   }
 

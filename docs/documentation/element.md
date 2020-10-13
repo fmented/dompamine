@@ -96,24 +96,26 @@ Return : ``this``
 ---
 
 
-- **steal( *psuedo*, *selector*)**
+- **steal( *selector*, *option* <sub>optional</sub>, *psuedo* <sub>optional</sub>)**
 
 |Parameter|Type|Default|Description
 |---|---|---|---|
-|psuedo|`string`| |psuedo class text|
 |selector|`string`| |css selector text|
+|option|`undefined` \| `null` | `undefined` |used to remove generated animation|
+|psuedo|`string`| empty string|psuedo class text|
 
 Return : ``this``
 
 ---
 
-- **anim( *psuedo*, *animation*, *option* <sub>optional</sub> )**
+- **anim( *animation*, *duration*, *option* <sub>optional</sub>  *psuedo* <sub>optional</sub>)**
 
 |Parameter|Type|Default|Description
 |---|---|---|---|
-|psuedo|`string`| |psuedo class text|
 |animation|`string`| |animation name|
-|option|`null`| |used to remove generated animation|
+|duration|`number`| `1`|animation name|
+|option|`boolean` \| `true`| |used to remove generated animation|
+|psuedo|`string`| empty string |psuedo class text|
 
 Return : ``this``
 
@@ -286,5 +288,29 @@ Return : ``this``
 |elid|`string`| |element name and id separated by *#*|
 |class|`string`| |class separated by <kbd>space</kbd> 
 |props|`object`| |[`HTMLElement`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement) properties|
+
+---
+
+
+**remove** ``object``
+
+**top()** 
+>remove previous sibling
+---
+
+**bottom()** 
+>remove next sibling
+---
+
+**self()** 
+>remove itself
+---
+
+**child(query)** 
+>remove child element(s)
+
+|Parameter|Type|Default|Description
+|---|---|---|---|
+|query|`string`| |query of child element to be removed|
 
 ---

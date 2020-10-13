@@ -96,28 +96,31 @@ Return : ``this``
 ---
 
 
-- **steal( *psuedo*, *selector*)**
+- **steal( *selector*, *option* <sub>optional</sub>, *psuedo* <sub>optional</sub>)**
 
 |Parameter|Type|Default|Description
 |---|---|---|---|
-|psuedo|`string`| |psuedo class text|
 |selector|`string`| |css selector text|
+|option|`undefined` \| `null` | |used to remove generated animation|
+|psuedo|`string`| empty string|psuedo class text|
 
 Return : ``this``
 
 ---
 
-- **anim( *psuedo*, *animation*, *option* <sub>optional</sub> )**
+- **anim( *animation*, *duration*, *option* <sub>optional</sub>  *psuedo* <sub>optional</sub>)**
 
 |Parameter|Type|Default|Description
 |---|---|---|---|
-|psuedo|`string`| |psuedo class text|
 |animation|`string`| |animation name|
-|option|`null`| |used to remove generated animation|
+|duration|`number`| |animation name|
+|option|`boolean` \| `null`| |used to remove generated animation|
+|psuedo|`string`| empty string |psuedo class text|
 
 Return : ``this``
 
 ---
+
 
 
 - **glue( *query* )**

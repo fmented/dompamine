@@ -97,7 +97,7 @@ Return : `string`
 
 ---
 
-- **range( *n1*, *n2*, *step* )**
+- **range( *n1*, *n2* <sub>optional</sub>, *step* <sub>optional</sub>)**
 
 |Parameter|Type|Default|Description
 |---|---|---|---|
