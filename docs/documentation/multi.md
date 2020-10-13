@@ -1,7 +1,7 @@
 ## Class
 
 
-### MultElement
+### MultiElement
 
 **constructor :**  `HTMLElement[]` \| [`NodeList`](https://developer.mozilla.org/en-US/docs/Web/API/Nodelist) \| `HTMLCollection`
 
