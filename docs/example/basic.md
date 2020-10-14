@@ -83,8 +83,8 @@ a.create.inside.bottom("b#someting", "", {innerText: "I'm new"})
 
 
 ```javascript
-a.anim("hover", "slideInRight") // generate new css rules for animation
-a.anim("hover", "slideInRight", null) //remove generated rules 
+a.anim("slideInRight", 1, "") // generate new css rules for animation
+a.anim("slideInRight", 1, "", null) //remove generated rules 
 ```
 
 ## Create CSS rule by copying another
@@ -94,6 +94,6 @@ a.anim("hover", "slideInRight", null) //remove generated rules
 >This will create new CSS rules with parent#id.class>el#id.class:psuedo-class.
 
 ```javascript
-a.steal("", "#item") // generate new css rules
-a.steal("", "#item", null) // remove generated rules
+a.steal("#item") // generate new css rules
+a.steal("#item", "",null) // remove generated rules
 ```

@@ -1,5 +1,5 @@
 import { _ } from "./Selector.js";
-import { type} from "./Utility.js";
+import { type, p } from "./Utility.js";
 
 let blacklist = "style previousSibling previousElementSibling part parentNode parentElement ownerDocument offsetParent nextSibling nextElementSibling lastChild firstChild dataset classList children childNotes attributes attributeStyleMap".split(
   " "
@@ -206,10 +206,10 @@ export class Element {
     },
   };
 
-  anim(name, time = 1, option = true, on = "") {
+  anim(name, time = 1, on="", option = true) {
     if (option === true) {
       this.on("animationend", function () {
-        _(this).anim(name, time, null, on).off("animationend");
+        _(this).anim(name, time, on, null).off("animationend");
       });
     }
     let base = document.querySelector("style[name=dompamine]");
@@ -249,27 +249,25 @@ export class Element {
     return this;
   }
 
-  steal(selector, option = undefined, on = "") {
-    if (option === true) {
-      this.on("animationend", function () {
-        _(this).steal(selector, null, on).off("animationend");
-      });
-    }
+  steal(selector, on = "", option = undefined) {
     let base = document.querySelector("style[name=dompamine]");
-    let css = [...document.styleSheets]
-      .map((i) => {
-        return [...i.cssRules];
-      })
-      .flat()
-      .filter((i) => {
-        return type(i) === "CSSStyleRule" && i.selectorText === selector;
-      })[0];
+    let css = [...document.styleSheets];
+    let filtered = [];
+    css.forEach((i) => {
+      try {
+        filtered.push([...i.rules]);
+      } catch {}
+    });
+    filtered = filtered.flat();
+    let result = filtered.filter((i) => {
+      return type(i) === "CSSStyleRule" && i.selectorText === selector;
+    })[0];
     on = on === "" ? "" : ":" + on;
-    if (css == undefined) {
+    if (result == undefined) {
       w("not found");
       return this;
     }
-    let txt = "\n" + css.cssText.replace(selector, this.query[0] + on);
+    let txt = "\n" + result.cssText.replace(selector, this.query[0] + on);
     if (base !== null) {
       if (option === null) {
         base.innerHTML = base.innerHTML.replace(txt, "");

@@ -1,4 +1,4 @@
-import{_}from"./Selector.js";import{type}from"./Utility.js";let blacklist="style previousSibling previousElementSibling part parentNode parentElement ownerDocument offsetParent nextSibling nextElementSibling lastChild firstChild dataset classList children childNotes attributes attributeStyleMap".split(" ");export class Element{constructor(element){this.element=element;return;}
+import{_}from"./Selector.js";import{type,p}from"./Utility.js";let blacklist="style previousSibling previousElementSibling part parentNode parentElement ownerDocument offsetParent nextSibling nextElementSibling lastChild firstChild dataset classList children childNotes attributes attributeStyleMap".split(" ");export class Element{constructor(element){this.element=element;return;}
 get el(){return this.element;}
 set css(text){this.style.cssText+=text;return this;}
 get css(){return this.style.cssText;}
@@ -16,15 +16,14 @@ create={top:(identity,classes,data={})=>{let nameId=identity.split("#");let cl=c
 return _(x);},inside:{top:(identity,classes,data={})=>{let nameId=identity.split("#");let cl=classes.split(" ");let x=document.createElement(nameId[0]);if(nameId[1]!=undefined)_(x).apply({id:nameId[1]});cl.forEach((i)=>{if(i!="")_(x).class.add(i);});_(x).apply(data);if(this.el.firstElementChild==null){this.el.appendChild(x);}else{this.el.insertBefore(x,this.el.firstElementChild);}
 return _(x);},bottom:(identity,classes,data={})=>{let nameId=identity.split("#");let cl=classes.split(" ");let x=document.createElement(nameId[0]);if(nameId[1]!=undefined)_(x).apply({id:nameId[1]});cl.forEach((i)=>{if(i!="")_(x).class.add(i);});_(x).apply(data);if(this.el.lastElementChild==null){this.el.appendChild(x);}else{this.el.insertBefore(x,this.el.lastElementChild);}
 return _(x);},},};remove={self:()=>{this.parent.el.removeChild(this.el);return null;},top:()=>{this.parent.el.removeChild(this.top.el);return this;},bottom:()=>{this.parent.el.removeChild(this.bottom.el);return this;},child:(q)=>{let e=this.find(q);if(e!=undefined){if(type(e)==="Element"){e.remove.self();}else{[...e].forEach((i)=>{i.remove.self();});}}
-return this;},};anim(name,time=1,option=true,on=""){if(option===true){this.on("animationend",function(){_(this).anim(name,time,null,on).off("animationend");});}
+return this;},};anim(name,time=1,on="",option=true){if(option===true){this.on("animationend",function(){_(this).anim(name,time,on,null).off("animationend");});}
 let base=document.querySelector("style[name=dompamine]");on=on===""?"":":"+on;let animation=[...document.styleSheets].filter((i)=>{return i.title=="dompamine-animation";})[0];if(animation==undefined){w(`please include <link rel="stylesheet" href="source/to/Animation.css" title="dompamine-animation"> in the head of the document`);return this;}else animation=animation.rules;let css=[...animation].filter((i)=>{return type(i)==="CSSStyleRule"&&i.selectorText==="."+name;})[0];let txt="\n"+
 css.cssText.slice(0,-1).replace(css.selectorText,this.query[0])+`animation-duration: ${time}s; }`;if(base!==null){if(option===null){base.innerHTML=base.innerHTML.replace(txt,"");if(base.innerHTML==""){_(base).remove.self();}
 return this;}
 if(!base.innerHTML.includes(txt))base.innerHTML+=txt;}else{let st=document.createElement("style");st.setAttribute("name","dompamine");st.innerHTML=txt;document.head.appendChild(st);}
 return this;}
-steal(selector,option=undefined,on=""){if(option===true){this.on("animationend",function(){_(this).steal(selector,null,on).off("animationend");});}
-let base=document.querySelector("style[name=dompamine]");let css=[...document.styleSheets].map((i)=>{return[...i.cssRules];}).flat().filter((i)=>{return type(i)==="CSSStyleRule"&&i.selectorText===selector;})[0];on=on===""?"":":"+on;if(css==undefined){w("not found");return this;}
-let txt="\n"+css.cssText.replace(selector,this.query[0]+on);if(base!==null){if(option===null){base.innerHTML=base.innerHTML.replace(txt,"");if(base.innerHTML==""){_(base).remove.self();}
+steal(selector,on="",option=undefined){let base=document.querySelector("style[name=dompamine]");let css=[...document.styleSheets];let filtered=[];css.forEach((i)=>{try{filtered.push([...i.rules]);}catch{}});filtered=filtered.flat();let result=filtered.filter((i)=>{return type(i)==="CSSStyleRule"&&i.selectorText===selector;})[0];on=on===""?"":":"+on;if(result==undefined){w("not found");return this;}
+let txt="\n"+result.cssText.replace(selector,this.query[0]+on);if(base!==null){if(option===null){base.innerHTML=base.innerHTML.replace(txt,"");if(base.innerHTML==""){_(base).remove.self();}
 return this;}
 if(!base.innerHTML.includes(txt))base.innerHTML+=txt;}else{let st=document.createElement("style");st.setAttribute("name","dompamine");st.innerHTML=txt;document.head.appendChild(st);}
 return this;}

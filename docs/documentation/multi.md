@@ -96,7 +96,7 @@ Return : ``this``
 ---
 
 
-- **steal( *selector*, *option* <sub>optional</sub>, *psuedo* <sub>optional</sub>)**
+- **steal( *selector*,  *psuedo* <sub>optional</sub>, *option* <sub>optional</sub>)**
 
 |Parameter|Type|Default|Description
 |---|---|---|---|
@@ -108,7 +108,7 @@ Return : ``this``
 
 ---
 
-- **anim( *animation*, *duration*, *option* <sub>optional</sub>  *psuedo* <sub>optional</sub>)**
+- **anim( *animation*, *duration*, *psuedo* <sub>optional</sub>, *option* <sub>optional</sub>)**
 
 |Parameter|Type|Default|Description
 |---|---|---|---|

@@ -29,8 +29,8 @@ exclude(el){let x=_(el)
 if(type(x)==="Element"){return _([...this].filter(i=>{return i.el!==x.el}))}
 else{x=[...x.list]
 return _([...this.list].filter(i=>{return!x.includes(i)}))}}
-anim(name,dur,option,on){[...this].forEach((i)=>i.anim(name,dur,option,on));return this;}
-steal(selector,option,on){[...this].forEach((i)=>i.steal(selector,option,on));return this;}
+anim(name,dur,on,option){[...this].forEach((i)=>i.anim(name,dur,option,on));return this;}
+steal(selector,on,option){[...this].forEach((i)=>i.steal(selector,on,option));return this;}
 glue(other){return _([this,other]);}
 on(ev,callback){[...this].forEach((i)=>i.on(ev,callback));return this;}
 off(ev,callback){[...this].forEach((i)=>i.off(ev,callback));return this;}

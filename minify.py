@@ -3,7 +3,7 @@ from rjsmin import jsmin as minifier
 from pathlib import Path
 
 in_dir = "dompamine-dev"
-out_dir = "dompamine-min"
+out_dir = "docs/testpage/dompamine-min"
 
 exclude = set(['.git', '.gitignore', 'index.html', 'index.js'])
 
