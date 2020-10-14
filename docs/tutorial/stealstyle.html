@@ -1,0 +1,44 @@
+<h1>Steal Style By CSS Selector Text</h1>
+<br>
+
+
+<pre>_("#target").steal("<input id="i1" value="#victim1" size="5"></input>", "<input id="i2" value="hover" size="5"></input>")</pre>
+<button id="btn-target">Run</button>
+<script>
+     _("#btn-target").on("click", function(){
+        a = _("pre").text
+        b = _("#i1").el.value
+        c = _("#i2").el.value
+        a= a.replace(`"",`,`"${b}",`)
+        a=a.slice(0, -3)+`"${c}")`
+        txt = "(()=>{"+a+"})()"
+        parent = _(this).parent
+        if(_("#generated")==null){
+            parent.create.inside.bottom("script#generated","",{
+                innerHTML: txt
+            })
+        }
+        else {
+            parent.el.removeChild(_("#generated").el)
+            parent.create.inside.bottom("script#generated","",{
+                innerHTML: txt
+            })
+        }
+    })
+</script>
+<style>
+    #victim1{
+        color: gray;
+        background: wheat;
+    }
+    #victim2{
+        color: blue;
+        background: pink;
+    }
+</style>
+
+
+<h4 id="target">I'm the target</h4>
+
+<h3 id="victim1">I'm the victim #1</h3>
+<h3 id="victim2">I'm the victim #1</h3>

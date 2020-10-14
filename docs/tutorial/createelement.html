@@ -1,16 +1,15 @@
-<h1>MultiElement Operation</h1>
+<h1>Create Element</h1>
 <br>
+<span>Only works with <a href="#/documentation/element.html">Element</a> and not with <a href="#/documentation/element.html">MultiElement</a>. Please read <a href="#/tutorial/additional.html">this</a> </span>
+<hr>
 
-
-<pre>_("#target1").set({<input size="21" id="input1" value="color : 'white', fontSize: '32px'"></input>}).glue("h5").style.background = "<input size="2" id="input2" value="gray"></input>"</pre>
+<pre id="source">_("#target").create.bottom("h1", "", {innerText: "<input size="7" value="I'm new"></input>"})</pre>
 <button id="btn-target">Run</button>
 <script>
     _("#btn-target").on("click", function(){
-        a = _("pre").text
-        b = _("#input1").el.value
-        c = _("#input2").el.value
-        a= a.replace(`{}`,`{${b}}`)
-        a= a.replace(`""`,`"${c}"`)
+        a = _("pre#source").text
+        b = _("input").el.value
+        a= a.replace(`""}`,`"${b}"}`)
         txt = "(()=>{"+a+"})()"
         parent = _(this).parent
         if(_("#generated")==null){
@@ -28,6 +27,4 @@
     
 </script>
 
-<h4 id="target1">I'm the target #1</h4>
-<h5>I'm gonna be glued</h4>
-<h5>Me too</h4>
+<h4 id="target">I'm the target</h4>

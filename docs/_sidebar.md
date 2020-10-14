@@ -11,8 +11,13 @@
     - [Change Visibility](tutorial/togglevisibility.html)
     - [Add Animation](tutorial/addanimation.html)
     - [Add CSS](tutorial/addcss.html)
+    - [Create Element](tutorial/createelement.html)
+    - [Remove Element](tutorial/removeelement.html)
+    - [Steal Style](tutorial/stealstyle.html)
     - [Chained Operation](tutorial/multipleoperation.html)
     - [MultiElement Operation](tutorial/multielementoperation.html)
+    - [Something](tutorial/prank.html)
+    
 
 ---
 
